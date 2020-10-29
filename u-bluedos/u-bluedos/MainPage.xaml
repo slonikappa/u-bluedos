@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="u_bluedos.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="16" CornerRadius="0">
+            <Label Text="u-bluedos" HorizontalTextAlignment="Center" TextColor="White" FontSize="24"/>
+        </Frame>
+        <ListView x:Name="lvBluetoothDevices" ItemsSource="{Binding Devices}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label Text="{Binding Path=Name}"/>
+                        <Label Text="{Binding Path=MAC}"/>
+                    </StackLayout>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
