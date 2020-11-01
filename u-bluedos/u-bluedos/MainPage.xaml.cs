@@ -12,14 +12,22 @@ namespace u_bluedos
 {
     public partial class MainPage : ContentPage
     {
-        ICollection<Models.Device> Devices;
+        IEnumerable<Models.Device> Devices;
         readonly IScannerService _scannerService;
         public MainPage(IScannerService scannerService)
         {
             InitializeComponent();
             _scannerService = scannerService;
 
-            Devices = scannerService.ScanDevices();
+            //Devices = scannerService.ScanDevices();
+            //lvBluetoothDevices.ItemsSource = Devices;
+            lvBluetoothDevices.SelectionMode = ListViewSelectionMode.None;
+        }
+
+        protected override void OnAppearing()
+        {
+            Devices = _scannerService.ScanDevices();
+            lvBluetoothDevices.ItemsSource = Devices;
         }
     }
 }

@@ -4,16 +4,25 @@
              x:Class="u_bluedos.MainPage">
 
     <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="16" CornerRadius="0">
+        <Frame BackgroundColor="#2196F3" Padding="8" CornerRadius="0">
             <Label Text="u-bluedos" HorizontalTextAlignment="Center" TextColor="White" FontSize="24"/>
         </Frame>
-        <ListView x:Name="lvBluetoothDevices" ItemsSource="{Binding Devices}">
+        <!--<Label Text="Device name" FontSize="24" Margin="30, 0" TextColor="#1893f5"/>-->
+        <ListView x:Name="lvBluetoothDevices" ItemsSource="{Binding Devices}" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Default" RowHeight="80">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout>
-                        <Label Text="{Binding Path=Name}"/>
-                        <Label Text="{Binding Path=MAC}"/>
-                    </StackLayout>
+                    <ViewCell Height="900">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Path=Name}" Grid.Row="0" Grid.Column="0" FontSize="24" Margin="30, 5, 0, 0" TextColor="#1893f5"/>
+                            <Label Text="{Binding Path=Address}" Grid.Row="0" Grid.Column="0" FontSize="24" Margin="30, 35, 0, 0" TextColor="Black"/>
+                        </Grid>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

@@ -7,6 +7,6 @@ namespace u_bluedos.Models
     public class Device
     {
         public string Name { get; set; }
-        public string MAC { get; set; }
+        public string Address { get; set; }
     }
 }

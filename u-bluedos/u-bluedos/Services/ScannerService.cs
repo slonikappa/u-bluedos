@@ -10,10 +10,10 @@ namespace u_bluedos.Services
 {
     class ScannerService : IScannerService
     {
-        public ICollection<Device> ScanDevices()
+        public IEnumerable<Device> ScanDevices()
         {
             BluetoothAdapter adapter = BluetoothAdapter.DefaultAdapter;
-            ICollection<Device> appDevices = new List<Device>();
+            List<Device> appDevices = new List<Device>();
             // проверяем, что у нас получен адаптер (есть Bluetooth) и он включен
             if (adapter != null && adapter.IsEnabled)
             {
@@ -26,7 +26,7 @@ namespace u_bluedos.Services
                     appDevices.Add(new Device
                     {
                         Name = device.Name,
-                        MAC = device.Address
+                        Address = device.Address
                     });
                 }
             }

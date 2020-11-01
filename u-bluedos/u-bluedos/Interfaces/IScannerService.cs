@@ -7,6 +7,6 @@ namespace u_bluedos.Interfaces
 {
     public interface IScannerService
     {
-        ICollection<Device> ScanDevices();
+        IEnumerable<Device> ScanDevices();
     }
 }
